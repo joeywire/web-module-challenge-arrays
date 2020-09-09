@@ -62,10 +62,9 @@ Your function should add the flavor to the front of the array and console.log th
 For example addFlavor("Rainbow Sherbert", originalFlavors) should return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"] */ 
 
 function addFlavor(array, flavor){
-    array.unshift(flavor);
+    array.unshift(flavor); // array.unshift() adds an item to the front of the array
     console.log(array);
 }
-
 
 addFlavor(originalFlavors, "Leather Shoe");
 // originalFlavors has Changed !!
@@ -82,7 +81,7 @@ Your function should remove a flavor from the end of the array and console.log t
 For example removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]*/ 
 
 function removeLastFlavor(array){
-    array.pop(); 
+    array.pop(); // array.pop() removes the last item in the array 
     console.log(array);
 
 }
@@ -184,13 +183,13 @@ and should return the average number of words per item in the array.
 For example, getAverageWordLength(originalFlavors) should return a number between 0 and 3. */
 
 function getAverageWordLength(array){
-    let wordNumber = 0;
+    let wordCount = 0;
     for(let i = 0; i < array.length; i++) {
-        let split = array[i].split(" ");
-        wordNumber += split.length;
+        let split = array[i].split(" "); // Splitting the string at each space and creating a new array
+        wordCount += split.length; // Tallying total word count
     }
     
-    return (wordNumber / array.length); 
+    return (wordCount / array.length); // Calculate avg word/ array item 
 }
 
 console.log(getAverageWordLength(originalFlavors));
@@ -283,16 +282,17 @@ function getRandomInt(min, max) {
     }
 
 function getRandomFlavors(arr1, arr2, arr3, arr4){
-    var mainArray = arr1.concat(arr2, arr3, arr4);
-    var returnArray = [];
-    for(let i = 0; i < 31; i++){
-        let index = getRandomInt(0, mainArray.length); 
-        returnArray.push(mainArray[index]);
-        mainArray.splice(index, 1);
+    var mainArray = arr1.concat(arr2, arr3, arr4); // Concatinating arguments into one large array
+    var returnArray = []; // Define Array to store selected flavors
+    for(let i = 0; i < 31; i++){ //we want 31 flavors 
+        let index = getRandomInt(0, mainArray.length); // selecting our random index 
+        returnArray.push(mainArray[index]); // adding random flavor to our new list 
+        mainArray.splice(index, 1); // removing selection to prevent duplicates 
     }
     return returnArray;
     //Create one large array 
-    //Randomly genearate 3 #'s within 0 and array.length - 1
+    //Randomly genearate # within 0 and array.length - 1
+    // Remove pr
     // return array[i] of those three 
 
 }
